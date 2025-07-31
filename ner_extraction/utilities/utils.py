@@ -218,7 +218,7 @@ def async_timer(func: Callable[..., Any]) -> Callable[..., Any]:
         start_time: float = time.perf_counter()
         result = await func(*args, **kwargs)
         duration: float = time.perf_counter() - start_time
-        logger.info(f"{func.__name__} executed in {duration:.2f} seconds")
+        logger.info(f"{func.__name__} executed in {duration:.2f} seconds")  # type: ignore
         return result
 
     return wrapper
