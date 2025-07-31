@@ -1,10 +1,10 @@
-# ML Jobs
+# Named Entity Recognition (NER)
 
 - This repository is used for extracting entities from text.
 
 ## Table of Content
 
-- [ML Jobs](#ml-jobs)
+- [Named Entity Recognition (NER)](#named-entity-recognition-ner)
   - [Table of Content](#table-of-content)
   - [Install UV Package Manager](#install-uv-package-manager)
     - [Install Specific Python Version](#install-specific-python-version)
