@@ -19,7 +19,6 @@ from ner_extraction.utilities.utils import (
     async_timer,
     clean_text,
     create_path,
-    list_files,
     upload_file_to_gcs,
 )
 
@@ -152,9 +151,6 @@ if __name__ == "__main__":
         #     )
         # )
         get_predictions_cli()
-        if ENVIRONMENT == "production":
-            upload_file_to_gcs(file_path=FILENAME, bucket_name=BUCKET_NAME, blob_name=None)
-        logger.info("✅ Extraction and data upload complete")
 
     except KeyboardInterrupt:
         logger.info("❌ Process interrupted by user.")

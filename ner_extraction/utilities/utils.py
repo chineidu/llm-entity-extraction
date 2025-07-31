@@ -406,25 +406,3 @@ def upload_file_to_gcs(
         logger.error(f"An error occurred during upload: {error}")
         raise
 
-
-def list_files() -> None:
-    """
-    List all files in the current directory and subdirectories, excluding specific
-    directories and file extensions.
-
-    Parameters
-    ----------
-    None
-
-    Returns
-    -------
-    None
-    """
-    exclude_exts: set[str] = {".pyc", ".log"}
-    exclude_dirs: set[str] = {"__pycache__", ".git", ".venv", ".mypy_cache"}
-
-    for path in Path(".").rglob("*"):
-        if any(part in exclude_dirs for part in path.parts):
-            continue
-        if path.is_file() and path.suffix not in exclude_exts:
-            print(f"Contents of root directory: \n{path}")
