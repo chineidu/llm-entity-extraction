@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: llm-job
+spec:
+  backoffLimit: 0 # Do not retry on failure
+  template:
+    spec:
+      restartPolicy: Never # Pod itself does not restart
+      containers:
+        - name: llm-task
+          image: europe-west1-docker.pkg.dev/daring-keep-433720-r2/indicina/llm-job:v2-c
+          env:
+            - name: ENVIRONMENT
+              value: production
+            - name: INDICINA_BASE_URL
+              value: http://llm-vllm.production.svc.cluster.local
+            - name: INDICINA_PORT
+              value: "80"
+
+          # === Commenting below to run on cpu only === 
+          # resources:
+          #   limits:
+          #     nvidia.com/gpu: 1
+          #   requests:
+          #     nvidia.com/gpu: 1
+
+          volumeMounts:
+            - name: llm-volume
+              mountPath: /data
+      volumes:
+        - name: llm-volume
+          persistentVolumeClaim:
+            claimName: llm-job-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: llm-job-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: standard-rwo
+

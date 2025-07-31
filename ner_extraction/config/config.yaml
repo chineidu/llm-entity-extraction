@@ -1,0 +1,25 @@
+app_config:
+  data:
+    data_path: data/examples.jsonl
+    download_data_path: data/ner_data.jsonl
+    bucket_name: mlripple
+
+
+  database:
+    filename: ner_extraction
+    db_path: sqlite:///ner_extraction.db
+
+  prompts:
+    prompt_path: ner_prompt.jinja2
+    thinking_mode: false
+    num_entity: five  # number of entities per transaction
+
+  inference:
+    batch_size: 200
+    concurrency_limit: 10
+    max_connections: 10
+    mini_batch_size: 40
+    use_vllm: false
+    model:
+      temperature: 0.0
+      seed: 0

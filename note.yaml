@@ -1,0 +1,29 @@
+<prompt>
+    <system>
+        {% if THINKING_MODE %}/think{% else %}/no_think{% endif %}
+        You are an expert in generating realistic financial transaction that contain key entities.
+    </system>
+
+    <instructions>
+        - Generate transactions with each transaction containing **{{ NUM_ENTITY | default(3) }}** key entities
+        - The generated transactions should contain multiple entities from the predefined labels below:
+            - cableTvOrStreamingOrSubscriptions: `{{ CABLETV_STREAMING_SUBSCRIPTIONS_STRING }}`
+            - leisureLifestyleOrRecreation: `{{ LEISURE_LIFESTYLE_RECREATION_STRING }}`
+            - financial_institutions: `{{ FINANCIAL_INSTITUTIONS_STRING }}`
+            - bettingOrGambling: `{{ GAMBLING_OR_BETTING_STRING }}`
+            - transactionPurposeOrAction: `{{ TRANSACTION_PURPOSE_STRING }}`
+    </instructions>
+
+    <examples>
+        {% for data in TRANSACTIONS %}
+        <txn> {{ data.transaction }} </txn>
+        <response> {{ data.response }} </response>
+        {% endfor %}
+    </examples>
+
+    <task>
+        Extract maximum of {{ NUM_ENTITY | default(3) }} key entities per transaction from the transactions below using 
+        the same format and labels:
+    </task>
+    
+</prompt>
