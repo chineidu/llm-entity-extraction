@@ -1,6 +1,6 @@
 # ML Jobs
 
-- This repository is used for running ML jobs.
+- This repository is used for extracting entities from text.
 
 ## Table of Content
 
