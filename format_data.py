@@ -1,5 +1,6 @@
 # import asyncio
 import json
+import re
 from pathlib import Path
 from typing import Annotated, Any, Type
 
@@ -142,6 +143,31 @@ if __name__ == "__main__":
     # console.print(response)
 
 
+def clean_text(text: str) -> str:
+    """
+    Clean text by removing special characters and converting to uppercase.
+
+    Parameters
+    ----------
+    text : str
+        Input text string to be cleaned
+
+    Returns
+    -------
+    str
+    """
+    patterns: str = r"\b(nip)\b"
+    regex_pattern: str = rf"[\d\W\s_]|{patterns}"
+    return re.sub(regex_pattern, " ", text, flags=re.I).strip()
+
+
+def remove_invalid_characters(filepath: str, output_path: str) -> None:
+    """Remove invalid characters from a CSV file and save the cleaned data."""
+    df: pl.DataFrame = pl.read_csv(filepath, infer_schema=False)
+    df = df.with_columns(pl.col("text").map_elements(clean_text, return_dtype=pl.Utf8).alias("text"))
+    df.write_csv(output_path)
+
+
 def process_data(fp: str, sp: Path) -> None:
     """
     Process CSV data and write to JSONL file.
@@ -176,7 +202,7 @@ def process_data(fp: str, sp: Path) -> None:
             if entity_str and not entity_str.strip().startswith("["):
                 print(f"Row {i}: Non-JSON entities value: {entity_str[:100]}...")
         raise
-    
+
     # Drop duplicates
     df = df.unique(["text"])
 
@@ -193,34 +219,13 @@ def process_data(fp: str, sp: Path) -> None:
 
 
 # Input file paths
-# fp: str = "./notebooks/unseen_data.csv"
-fp: str = "data/data/*.csv"  # Use the fixed CSV file
+# fp: str = "data/data/*.csv" 
+fp: str = "./data/results.csv"
 # sp: Path = Path("data/data/pred_data.jsonl")
-sp: Path = Path("./data/training_data.jsonl")
+# sp: Path = Path("./data/training_data.jsonl")
+sp: Path = Path("./data/pred_data.jsonl")
+
 
 # Process the data
+# remove_invalid_characters("./data/results.csv", output_path="./data/results_cleaned.csv")
 process_data(fp, sp)
-
-
-# from glob import glob
-
-# filepaths = glob("./notebooks/*.csv")
-# all_data_df: pl.DataFrame = pl.DataFrame()
-
-# for fp in filepaths:
-#     df: pl.DataFrame = pl.read_csv(fp)
-#     all_data_df = pl.concat([all_data_df, df], how="vertical")
-
-# all_data_df = all_data_df.unique(["text"]).drop(["id", "createdAt"])
-# print(all_data_df.shape)
-# print(all_data_df.head())
-
-# all_data_df.write_csv("./notebooks/training_data_combined.csv")
-# df = pl.read_csv("./notebooks/batch_1.csv").drop(["txnId"])
-# print(df.head())
-
-
-# TODO
-# 1. Add transactions with names (at least 500)
-# 2. Generate training data by extracting entities using an LLM
-# 3. Fine-tune gliNER model

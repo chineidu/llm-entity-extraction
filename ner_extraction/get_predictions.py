@@ -1,5 +1,4 @@
 import asyncio
-import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Literal
@@ -14,12 +13,10 @@ from ner_extraction.schemas import AllEntitySchemaResponse, ModelEnum
 from ner_extraction.schemas.ner_models import engine, init_db
 from ner_extraction.utilities.entity_utils import BASE_URL, ENVIRONMENT, async_get_batch_entities
 from ner_extraction.utilities.utils import (
-    async_download_file_from_gdrive,
     async_load_json_data,
     async_timer,
     clean_text,
     create_path,
-    upload_file_to_gcs,
 )
 
 logger = create_logger(name="get_predictions")
@@ -85,9 +82,7 @@ async def get_predictions(
         data_path = Path(data_path)
 
     format_type: Literal["json_file", "jsonl_file"] | None = (
-        "json_file"
-        if data_path.suffix[1:] == "json"
-        else ("jsonl_file" if data_path.suffix[1:] == "jsonl" else None)
+        "json_file" if data_path.suffix[1:] == "json" else ("jsonl_file" if data_path.suffix[1:] == "jsonl" else None)
     )
     if format_type is None:
         return {
