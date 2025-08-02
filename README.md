@@ -12,6 +12,7 @@
   - [Set Up Environment Variables](#set-up-environment-variables)
   - [Extract Entities](#extract-entities)
     - [Get Help And Usage](#get-help-and-usage)
+    - [Format Extracted Data](#format-extracted-data)
     - [Adjust The Config](#adjust-the-config)
 
 ## Install UV Package Manager
@@ -56,12 +57,16 @@ cp .env.example .env
 uv run -m ner_extraction.get_predictions --help
 
 # usage
-uv run -m ner_extraction.get_predictions \
-        --batch-size N
+uv run -m ner_extraction.get_predictions
+```
 
-# e.g.
-uv run -m ner_extraction.get_predictions \
-        --batch-size 20
+### Format Extracted Data
+
+- After extracting entities, the data is stored in a SQLite database.
+- The data is extracted as a CSV file and formatted into JSONL using:
+
+```sh
+uv run format_data.py
 ```
 
 ### Adjust The Config

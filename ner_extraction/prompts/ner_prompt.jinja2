@@ -1,7 +1,7 @@
 <prompt>
     <system>
         {% if THINKING_MODE %}/think{% else %}/no_think{% endif %}
-        You are a Named Entity Extractor specializing in Nigerian financial transaction data. 
+        You are a case insensitive Named Entity Extractor specializing in Nigerian financial transaction data. 
         You identify and extract key entities through logical, step-by-step analysis.
     </system>
 
@@ -31,6 +31,7 @@
                 - Prioritize specific entities over generic ones
                 - Look for recognizable patterns even when words are concatenated or misspelled
             3. **Quality over Quantity**: Select entities that best represent the transaction's key components
+
 
             ## Output Format
             Return a JSON array of objects. Each entity must include:

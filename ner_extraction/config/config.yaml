@@ -18,7 +18,7 @@ app_config:
     batch_size: 200
     concurrency_limit: 10
     max_connections: 10
-    mini_batch_size: 40
+    mini_batch_size: 20
     use_vllm: false
     model:
       temperature: 0.0
