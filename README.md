@@ -6,6 +6,14 @@
 
 - [Named Entity Recognition (NER)](#named-entity-recognition-ner)
   - [Table of Content](#table-of-content)
+  - [Technologies Used](#technologies-used)
+    - [Programming Language](#programming-language)
+    - [Core Libraries](#core-libraries)
+    - [LLM Integration](#llm-integration)
+    - [Data Processing](#data-processing)
+    - [Database](#database)
+    - [Containerization](#containerization)
+    - [Development Tools](#development-tools)
   - [Install UV Package Manager](#install-uv-package-manager)
     - [Install Specific Python Version](#install-specific-python-version)
   - [Install Dependencies](#install-dependencies)
@@ -14,6 +22,50 @@
     - [Get Help And Usage](#get-help-and-usage)
     - [Format Extracted Data](#format-extracted-data)
     - [Adjust The Config](#adjust-the-config)
+
+## Technologies Used
+
+This project leverages the following technologies:
+
+### Programming Language
+
+- **Python 3.12+** - Modern Python version for enhanced typing and performance
+
+### Core Libraries
+
+- **Instructor** - LLM guidance framework for structured outputs
+- **Polars** - High-performance DataFrame library for data manipulation
+- **SQLAlchemy** - SQL toolkit and ORM for database operations
+- **Pydantic** - Data validation and settings management
+- **Jinja2** - Templating engine for prompt engineering
+
+### LLM Integration
+
+- **OpenAI API Client** - For interfacing with OpenAI compatible models
+- **OpenRouter** - API aggregation for multiple LLM providers
+- **RunPod** - GPU infrastructure for running self-hosted models
+
+### Data Processing
+
+- **HTTPX** - Asynchronous HTTP client for API calls
+- **Tenacity** - Retry library for robust API interactions
+- **OmegaConf** - YAML configuration management
+- **Rich** - Terminal formatting and visualization
+- **TQDM** - Progress bar for batch processing operations
+
+### Database
+
+- **SQLite** - Lightweight database for storing entity extraction results
+
+### Containerization
+
+- **Docker** - For containerized deployment
+
+### Development Tools
+
+- **UV** - Fast Python package manager written in Rust
+- **Black** - Code formatting
+- **Ruff** - Fast Python linter
 
 ## Install UV Package Manager
 
