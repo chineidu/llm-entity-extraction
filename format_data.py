@@ -157,7 +157,7 @@ def clean_text(text: str) -> str:
     str
     """
     patterns: str = r"\b(nip)\b"
-    regex_pattern: str = rf"[\d\W\s_]|{patterns}"
+    regex_pattern: str = rf"[\d\W\s_]+|{patterns}"
     return re.sub(regex_pattern, " ", text, flags=re.I).strip()
 
 
@@ -223,7 +223,7 @@ def process_data(fp: str, sp: Path) -> None:
 fp: str = "./data/results.csv"
 # sp: Path = Path("data/data/pred_data.jsonl")
 # sp: Path = Path("./data/training_data.jsonl")
-sp: Path = Path("./data/pred_data.jsonl")
+sp: Path = Path("./data/locations_data.jsonl")
 
 
 # Process the data
