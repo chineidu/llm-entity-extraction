@@ -29,12 +29,12 @@ from .jinja_utils import (
     setup_jinja_environment,
 )
 from .keywords import (
+    AIRTIME_OR_DATA,
     banking_organizations,
     cabletv_streaming,
     fees,
     gambling_or_betting,
     health,
-    internet_and_telecom,
     loan_repayment,
     location,
     organization,
@@ -87,7 +87,7 @@ LOAN_REPAYMENT_STRING: str = "|".join(loan_repayment)
 SAVINGS_AND_INVESTMENTS_STRING: str = "|".join(savings_and_investments)
 PENSIONS_STRING: str = "|".join(pensions)
 HEALTH_STRING: str = "|".join(health)
-TOPUP_OR_DATA_STRING: str = "|".join(internet_and_telecom)
+TOPUP_OR_DATA_STRING: str = "|".join(AIRTIME_OR_DATA)
 BANKING_ORGANIZATION_STRING: str = "|".join(banking_organizations)
 PERSON_STRING: str = "|".join(person)
 ORGANIZATION_STRING: str = "|".join(organization)

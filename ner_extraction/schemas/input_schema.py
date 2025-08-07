@@ -67,7 +67,7 @@ class EntityType(str, Enum):
     SAVINGS_AND_INVESTMENTS = "savingsAndInvestments"
     PENSIONS = "pensions"
     HEALTH_ACTIVITY = "healthActivity"
-    INTERNET_AND_TELECOM = "topUpOrData"
+    AIRTIME_OR_DATA = "airtimeOrData"
     PERSON = "person"
     BANKING_ORGANIZATION = "bankOrFinancialOrganization"
     ORGANIZATION = "organizationOrEnterprise"

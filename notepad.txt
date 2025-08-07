@@ -4,7 +4,7 @@ bankOrFinancialOrganization: P=0.97, R=0.96, F1=0.96
 leviesAndCharges: P=0.95, R=0.96, F1=0.96
 savingsAndInvestments: P=0.94, R=0.96, F1=0.95
 person: P=0.97, R=0.73, F1=0.84
-TopUpOrData: P=0.64, R=0.94, F1=0.76
+airtimeOrData: P=0.64, R=0.94, F1=0.76
 religiousActivity: P=0.9, R=0.56, F1=0.69
 bettingOrGambling: P=0.47, R=0.78, F1=0.58
 loanRepayment: P=0.37, R=0.68, F1=0.48
@@ -18,7 +18,7 @@ bankOrFinancialOrganization: P=0.97, R=0.97, F1=0.97
 leviesAndCharges: P=0.98, R=0.95, F1=0.96
 person: P=0.98, R=0.93, F1=0.95
 savingsAndInvestments: P=0.9, R=0.95, F1=0.92
-TopUpOrData: P=0.8, R=0.94, F1=0.86
+airtimeOrData: P=0.8, R=0.94, F1=0.86
 pensions: P=1.0, R=0.75, F1=0.86
 cableTvOrStreaming: P=0.62, R=0.91, F1=0.74
 healthActivity: P=0.83, R=0.67, F1=0.74
@@ -35,7 +35,7 @@ person: P=0.98, R=0.97, F1=0.97
 leviesAndCharges: P=0.98, R=0.95, F1=0.97
 savingsAndInvestments: P=0.88, R=0.99, F1=0.93
 healthActivity: P=0.74, R=0.93, F1=0.82
-TopUpOrData: P=0.73, R=0.94, F1=0.82
+airtimeOrData: P=0.73, R=0.94, F1=0.82
 organizationOrEnterprise: P=0.68, R=0.76, F1=0.72
 cableTvOrStreaming: P=0.55, R=1.0, F1=0.71
 bettingOrGambling: P=0.5, R=1.0, F1=0.67

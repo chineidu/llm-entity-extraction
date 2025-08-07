@@ -442,7 +442,7 @@ health: list[str] = [
     "medicaid",
 ]
 
-internet_and_telecom: list[str] = ["airtime", "data", "internet"]
+AIRTIME_OR_DATA: list[str] = ["airtime", "data", "internet"]
 
 person: list[str] = [
     "Abimbola",
@@ -1173,7 +1173,7 @@ __all__: list[str] = [
     "savings_and_investments",
     "pensions",
     "health",
-    "internet_and_telecom",
+    "AIRTIME_OR_DATA",
     "banking_organizations",
     "person",
     "location",
