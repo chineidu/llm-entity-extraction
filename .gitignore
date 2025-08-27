@@ -168,3 +168,4 @@ models
 **/**/*.db
 **/**/data/data/
 **/**/ner_data.jsonl
+**/**/__pycache__/

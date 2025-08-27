@@ -219,11 +219,10 @@ def process_data(fp: str, sp: Path) -> None:
 
 
 # Input file paths
-# fp: str = "data/data/*.csv" 
-fp: str = "./data/results.csv"
+fp: str = "data/data/*.csv" 
+# fp: str = "./data/results.csv"
 # sp: Path = Path("data/data/pred_data.jsonl")
-# sp: Path = Path("./data/training_data.jsonl")
-sp: Path = Path("./data/locations_data.jsonl")
+sp: Path = Path("./data/training_data.jsonl")
 
 
 # Process the data

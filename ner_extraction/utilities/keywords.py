@@ -117,7 +117,7 @@ religious_activity: list[str] = [
 ]
 
 
-fees: list[str] = ["vat", "levy", "charge", "visa"]
+fees: list[str] = ["vat", "levy", "charge", "visa", "value added tax"]
 
 gambling_or_betting: list[str] = [
     "sporty",
@@ -442,7 +442,7 @@ health: list[str] = [
     "medicaid",
 ]
 
-AIRTIME_OR_DATA: list[str] = ["airtime", "data", "internet"]
+AIRTIME_OR_DATA: list[str] = ["airtime", "data", "internet", "glo", "globacom", "mtn", "airtel"]
 
 person: list[str] = [
     "Abimbola",
