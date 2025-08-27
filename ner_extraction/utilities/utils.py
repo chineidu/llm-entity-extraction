@@ -185,7 +185,7 @@ async def async_load_json_data(
         # Read the file asynchronously with anyio
         async with await anyio.open_file(data_path, "r") as f:
             # Read ALL the contents of the file
-            contents: str = await f.read()
+            contents: str = await f.read()  # type: ignore
             # Parse the JSON data
             return json.loads(contents)
 

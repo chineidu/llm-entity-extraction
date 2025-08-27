@@ -95,7 +95,7 @@ async def get_predictions(
     model_str: ModelEnum = MODEL
 
     with Session(engine) as session:
-        all_results: list[dict[str, Any]] = await async_get_batch_entities(
+        all_results: list[dict[str, Any]] = await async_get_batch_entities( # type: ignore
             texts=data,
             model_str=model_str,
             response_model=response_model,  # type: ignore
